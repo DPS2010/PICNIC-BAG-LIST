@@ -1,0 +1,24 @@
+from tkinter import *
+import random
+
+root = Tk()
+root.geometry("500x500")
+
+items = Label(root)
+answer = Label(root)
+
+picnic_items = ["A Picnic Basket ", "A Picnic Blanket ", "Corkscrew ", "Cutting Board and Knife ","Paper Towels" ]
+
+items["text"] = "Listed Items: " + str(picnic_items)
+
+def bag_contents ():
+    random_list = random.sample(range(0, 4),1) 
+    answer["text"] = "Put item Number" + str(random_list) + "in the bag"
+    
+items.place(relx = 0.5 ,rely = 0.4, anchor = CENTER)
+answer.place(relx = 0.5 ,rely = 0.8, anchor = CENTER)
+
+button  = Button(root, text = "Which item to put inside the bag", command = bag_contents)
+button.place(relx = 0.5, rely = 0.6, anchor = CENTER)
+
+root.mainloop()
